@@ -6,7 +6,7 @@
 </head>
 <body>
 {% for domain in domains %}
-{{domain.id}} <a href="{% url 'domain_view' domain.id %}">{{ domain.fqdn }} {{domain.</a><br>
+{{domain.id}} <a href="{% url 'domain_view' domain.id %}">{{ domain.fqdn }} </a><br>
 {% endfor %}
 </body>
 </html>

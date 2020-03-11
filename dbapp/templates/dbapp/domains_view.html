@@ -5,8 +5,21 @@
     <title>List of domains</title>
 </head>
 <body>
-{% for domain in domains %}
-{{domain.id}} <a href="{% url 'domain_view' domain.id %}">{{ domain.fqdn }} </a><br>
-{% endfor %}
+<table border="1">
+    <thead><td>id</td><td>fqdn</td><td>valid flags</td></thead>
+    <tbody>
+    {% for domain in domains %}
+    <tr><td>{{domain.id}}</td>
+        <td><a href="{% url 'domain_view' domain.id %}">{{ domain.fqdn }} </a></td>
+        <td>{% for df in domain_flags %}
+                {% if df.domain == domain %}
+                    {{df.flag}}
+                {% endif %}
+            {% endfor %}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 </body>
 </html>

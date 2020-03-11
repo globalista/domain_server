@@ -5,8 +5,13 @@
     <title>Domain view</title>
 </head>
 <body>
-{% for d in domain %}
-    {{ d.id }} {{ d.fqdn }} {{ d.crdate }} {{d.erdate }}
-{% endfor %}
+
+{{ domain.id }} {{ domain.fqdn }} {{ domain.crdate }} {{domain.erdate }}
+
+    {% if domain_flag %}
+        {% for df in domain_flag %}
+            {{df.flag}}
+        {% endfor %}
+    {% endif %}
 </body>
 </html>

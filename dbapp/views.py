@@ -1,15 +1,13 @@
 from django.shortcuts import render
-from .models import Domain
-# Create your views here.
-from django.http import HttpResponse
+from .models import Domain, DomainFlag
 
-#def index(request):
-#    return HttpResponse("Hello, world. You're at the db_app index.")
+
 def index(request):
     domains = Domain.objects.all()
     return render(request, 'dbapp/domains_view.html', {'domains': domains})
 
 def domain_view(request, pk):
-    domain = Domain.objects.filter(id=pk)
-    return render(request, 'dbapp/domain_view.html', {'domain': domain})
+    domain0 = Domain.objects.filter(id=pk)[0]
+    domain_flag = DomainFlag.objects.filter(domain = domain0)
+    return render(request, 'dbapp/domain_view.html', {'domain': domain0, 'domain_flag': domain_flag})
 

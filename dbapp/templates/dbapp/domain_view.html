@@ -5,13 +5,25 @@
     <title>Domain view</title>
 </head>
 <body>
-
-{{ domain.id }} {{ domain.fqdn }} {{ domain.crdate }} {{domain.erdate }}
-
+<table border="1">
+    <thead>
+        <th>id</th><th>fqdn</th><th>created</th><th>erased</th>
+    </thead>
+    <tbody>
+    <td>{{ domain.id }}</td><td> {{ domain.fqdn }}</td><td> {{ domain.crdate }}</td><td> {{domain.erdate}}</td>>
+    </tbody>
+</table><br>
+<table border="1">
+    <thead> <th>Active flags</th> </thead>
+    <tbody>
     {% if domain_flag %}
+
         {% for df in domain_flag %}
-            {{df.flag}}
+        <tr><td>{{df.flag}}</td></tr>
         {% endfor %}
+
     {% endif %}
+    </tbody>
+</table>
 </body>
 </html>

@@ -25,4 +25,3 @@ def domain_view(request, pk):
     domain_flags = DomainFlag.objects.filter(domain=domain0)
     valid_domain_flags = make_list_of_active_flags(domain_flags)
     return render(request, 'dbapp/domain_view.html', {'domain': domain0, 'domain_flag': valid_domain_flags})
-

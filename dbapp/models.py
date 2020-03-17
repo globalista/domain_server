@@ -132,7 +132,7 @@ class DomainFlag(models.Model):
     domain = models.ForeignKey(Domain, models.DO_NOTHING)
     flag = models.TextField()  # This field type is a guess.
     valid_from = models.DateTimeField()
-    valid_to = models.DateTimeField(db_column='valid_to', blank=True, null=True)  # Field renamed because it contained more than one '_' in a row.
+    valid_to = models.DateTimeField(db_column='valid_to', blank=True, null=True)
 
     class Meta:
         managed = False
